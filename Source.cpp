@@ -29,7 +29,15 @@ void lcs(string str1, string str2)
 			if (str1[i] != str2[j])
 			{
 				if (j == 0 || i == 0)
-					c[i][j] = 0;
+				{
+					if (i>0)
+						c[i][j] = c[i - 1][j];
+					else if (j>0)
+						c[i][j] = c[i][j - 1];
+					else
+     					c[i][j] = 0;
+
+				}
 				else
 					c[i][j] = Max(c[i - 1][j], c[i][j - 1]);
 
